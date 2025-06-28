@@ -1,0 +1,15 @@
+{
+  "gender_classification": {
+    "accuracy": 0.9407582938388626,
+    "precision": 0.9410602186746487,
+    "recall": 0.9407582938388626,
+    "f1_score": 0.9409013463910398
+  },
+  "face_verification": {
+    "accuracy": 0.9908598510494245,
+    "precision": 1.0,
+    "recall": 0.9838129496402878,
+    "f1_score": 0.9918404351767905
+  },
+  "weighted_score": 0.975829383886256
+}
