@@ -95,6 +95,8 @@ data/raw/Comys_Hackathon5/
 
 ### Training
 
+data_path=data/raw/Comys_Hackathon5
+
 #### Train Gender Classification Only
 ```bash
  main.py --mode train --task gender --data_path $data_path
@@ -116,6 +118,8 @@ python main.py --mode train --data_path /path/to/dataset --task gender --finetun
 ```
 
 ### Testing
+
+data_path=data/raw/Comys_Hackathon5
 
 #### Test Gender Classification
 ```bash
