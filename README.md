@@ -60,6 +60,18 @@ comsys-hackathon-5/
 └── README.md              # This file
 ```
 
+## 📦 Download Pretrained Models
+
+Download the pretrained models required for testing:
+
+| Model | Task | Link |
+|-------|------|------|
+| `gender_classifier.pth` | Task A: Gender Classification | [Download](https://drive.google.com/file/d/1ppsem-CfcSGW9PDyjCLINkUwg-DkDTEZ/view?usp=drive_link) |
+| `face_verification.pth` | Task B: Face Verification | [Download](https://drive.google.com/file/d/1gwFCYWTImXGoUhKXzEB6zCOZOGNrU8OJ/view?usp=drive_link) |
+
+After downloading, place the files inside the `models/` folder.
+
+
 ## 🚀 Quick Start
 
 ### Prerequisites
