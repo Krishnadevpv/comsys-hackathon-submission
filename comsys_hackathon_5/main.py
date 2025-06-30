@@ -818,10 +818,10 @@ def main():
         
         if args.task in ['gender', 'both']:
             solution.load_data(args.data_path)
-            solution.train_gender_classifier(args.gender_epochs)
-            # Add fine-tuning option
             if args.finetune:
-                 solution.fine_tune_gender_classifier(additional_epochs=3)
+               solution.fine_tune_gender_classifier(additional_epochs=args.gender_epochs)
+            else:
+               solution.train_gender_classifier(args.gender_epochs)
         
         
         if args.task in ['verification', 'both']:
