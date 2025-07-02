@@ -70,57 +70,6 @@ class GenderDataset(Dataset):
                 dummy_image = self.transform(dummy_image)
             return dummy_image, label
 
-class FaceRecognitionDataset(Dataset):
-    """Dataset class for Task B - Face Recognition"""
-    
-    def __init__(self, data_path, split='train', transform=None):
-        self.data_path = data_path
-        self.split = split
-        self.transform = transform
-        self.samples = []
-        self.labels = []
-        self.person_to_idx = {}
-        
-        # Load data from taskb folder
-        task_path = os.path.join(data_path, 'taskb', split)
-        person_idx = 0
-        
-        for person_folder in os.listdir(task_path):
-            person_path = os.path.join(task_path, person_folder)
-            if os.path.isdir(person_path):
-                self.person_to_idx[person_folder] = person_idx
-                
-                for img_file in os.listdir(person_path):
-                    if img_file.lower().endswith(('.png', '.jpg', '.jpeg')):
-                        img_path = os.path.join(person_path, img_file)
-                        self.samples.append(img_path)
-                        self.labels.append(person_idx)
-                
-                person_idx += 1
-        
-        self.num_classes = len(self.person_to_idx)
-        print(f"Face Recognition Dataset {split}: {len(self.samples)} images")
-        print(f"Number of persons: {self.num_classes}")
-    
-    def __len__(self):
-        return len(self.samples)
-    
-    def __getitem__(self, idx):
-        img_path = self.samples[idx]
-        label = self.labels[idx]
-        
-        try:
-            image = Image.open(img_path).convert('RGB')
-            if self.transform:
-                image = self.transform(image)
-            return image, label
-        except Exception as e:
-            print(f"Error loading image {img_path}: {e}")
-            # Return a dummy image if loading fails
-            dummy_image = Image.new('RGB', (224, 224), color='black')
-            if self.transform:
-                dummy_image = self.transform(dummy_image)
-            return dummy_image, label
 
 class GenderClassifier(nn.Module):
     """Gender Classification Model - Task A"""
